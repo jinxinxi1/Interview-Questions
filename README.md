@@ -502,15 +502,14 @@
 
 ### 68、Vue生命周期
 + 8个阶段：
-1、beforeCreate  （创建前）
-2、created       （创建后）
-3、beforeMount  （载入前）
-4、mounted      （载入后）
-5、beforeUpdate  （更新前）
-6、updated       （更新后）
-7、beforeDestroy  （销毁前）
-8、destroyed      （销毁后）
-
+  + 1、beforeCreate  （创建前）
+  + 2、created       （创建后）
+  + 3、beforeMount  （载入前）
+  + 4、mounted      （载入后）
+  + 5、beforeUpdate  （更新前）
+  + 6、updated       （更新后）
+  + 7、beforeDestroy  （销毁前）
+  + 8、destroyed      （销毁后）
 + beforecreate : 可以在这加个loading事件
 + created ：结束loading，还做一些初始化，实现函数自执行 
 + mounted ： 发起后端请求，拿回数据，配合路由钩子做一些事情
