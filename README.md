@@ -34,7 +34,7 @@
  + 业务测试
 
 ### 7、清除浮动
-+ display: block; 变为 块元素
++ display: block 变为 块元素
 + overfolw: hidden
 + :before / :after 伪元素 清除浮动
 + clear: both
