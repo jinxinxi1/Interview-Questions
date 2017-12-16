@@ -746,9 +746,9 @@
 
 ### 106、百度地图定位
 + PC端
- + IP地址
+  + IP地址
 + 手机定位
- + GPS、基站定位
+  + GPS、基站定位
 
 ### 107、版本控制工具
 + SVN -- CollabNet Subversion
