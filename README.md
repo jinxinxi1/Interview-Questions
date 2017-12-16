@@ -36,7 +36,7 @@
 ### 7、清除浮动
 + display: block; 变为 块元素
 + overfolw: hidden
-+ :before / :after 伪元素清除浮动
++ :before / :after 伪元素 清除浮动
 + clear: both
 
 ### 8、BFC
