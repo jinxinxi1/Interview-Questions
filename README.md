@@ -345,7 +345,7 @@
 + 旋转
 + 多列布局
 
-### 50、jQuery
+### 50、jQuery (write less,do more)
 + 功能丰富的JS函数库、项目开发首选
 + 主要用于PC端
 + jQueryMobile用于移动端
