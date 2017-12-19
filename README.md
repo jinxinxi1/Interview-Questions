@@ -360,14 +360,7 @@
 + 2.x 兼容新版本IE（已停止更新）
 + 3.x	兼容新版本IE
 
-### 52、jQuery隐藏/显示元素
-+ jQuery hide() 隐藏
-+ jQuery show() 显示
-+ jQuery toggle() 切换
-+ jQuery slideUp() 滑动
-+ jQuery animate() 动画
-
-### 53、jQuery的attr和prop方法区别
+### 52、jQuery的attr和prop方法区别
 + attr
   + 如果有相应的属性，返回指定属性值
   + 如果没有相应的属性，返回值是undefined
@@ -379,13 +372,13 @@
   + 获取匹配的元素集中第一个元素的属性（property）值,或设置每一个匹配元素的一个或多个属性
   + 对于HTML元素本身就带有的固有属性，在处理时，使用prop方法
 
-### 54、zepto
+### 53、zepto
 + 函数库
 + 移动端框架
 + 轻量级，8kb
 + 封装简化DOM操作
 
-### 55、zepto解决了tap事件点透
+### 54、zepto解决了tap事件点透
 + 出现场景
   + 因为click延迟
   + A/B两个层上下z轴重叠
@@ -395,7 +388,7 @@
 + 解决
   + 用touchend代替tap事件并阻止掉touchend的默认行为preventDefault()
 
-### 56、angular
+### 55、angular
 + 结构化框架 
 + 动态展示页面数据、与用户进行交互 
 + 双向数据绑定
@@ -407,7 +400,7 @@
 + 解耦应用逻辑，数据模型和视图
 + angular解决了 单页面应用、跳转、无法回退
 
-### 57、react
+### 56、react
 + 结构化框架、动态构建用户界面的js库
 + 高效
 + 单向数据流
@@ -417,7 +410,7 @@
 + 虚拟DOM
 + 支持客户端 和 服务器渲染
 
-### 58、react的生命周期
+### 57、react的生命周期
 + 创建  
   + getDefaultProps
   + getInitialState
@@ -425,11 +418,11 @@
 + 更新 render
 + 销毁 componentDidMount
 
-### 59、react高效的原因
+### 58、react高效的原因
 + 虚拟DOM，不是直接操作DOM
 + 高效的DOM Diff算法，最小化页面重绘
 
-### 60、虚拟DOM
+### 59、虚拟DOM
 + 虚拟DOM是在DOM的基础上建立了一个抽象层，我们对数据和状态所做的任何	   改动，都会被自动且高效的同步到虚拟DOM，最后再批量同步到DOM中
 + 虚拟DOM具有批处理和高效的Diff算法，可以无需担心性能问题而随时“刷新”整个页面，因为虚拟DOM可以确保只对界面上真正变化的部分进行实际的DOM操作
   + 优点
@@ -437,7 +430,7 @@
   + 缺点
     + 首次渲染大量DOM时，由于多了一层虚拟DOM的计算，会比innerHTML插入慢
 
-### 61、Vue		
+### 60、Vue		
 + MVVM框架
 + 双向数据绑定
 + 单页面应用
@@ -446,18 +439,18 @@
 + 体积小、效率高、编码简洁、PC/移动端 都合适
 + vue.js不支持IE8及以下版本
 
-### 62、Vue原理
+### 61、Vue原理
 + 实现 （数据监视器） Observer
 + 实现 （指令解析器） Compile
 + 实现 （桥梁） Watcher
 + 实现 （入口函数） MVVM
 
-### 63、MVVM原理
+### 62、MVVM原理
 + 双向数据绑定
 + View - Model：DOM Listeners （DOM监听）
 + Model - View：Date Bindings （数据绑定）
 
-### 64、MVVM
+### 63、MVVM
 + 解决了js混乱，便于管理  
 + 优点
   + 低耦性
@@ -467,7 +460,7 @@
 + 缺点
   + 内存消耗很大
 
-### 65、Vue指令
+### 64、Vue指令
 * v-text : 当作 纯文本
 * v-html : 将value作为 html标签来解析
 * v-if : 用于在运行条件下不大可能改变
@@ -478,20 +471,20 @@
 * v-bind : 强制绑定 解析表达式
 * v-model ： 双向数据绑定
 
-### 66、vue传参
+### 65、vue传参
 + vue父组件向子组件传参 props
 + vue父组件获取子组件	ref
 + vue子组件向父组件 emit
 + vue组件间传参 vuex
 
-### 67、Vue全家桶
+### 66、Vue全家桶
 + vue-cli 脚手架
   + 自动生成模板工程、目录结构、本地调试、热加载、单元测试
 + vue-router
 + vue-resource  资源
 + vuex 状态管理模式
 
-### 68、Vuex 
+### 67、Vuex 
 + 状态管理模式
   + state：驱动应用的数据源 (数据)
   + view：以声明方式将state映射到视图 (界面)
@@ -505,7 +498,7 @@
   + 单一状态树管理，让数据的修改脉络更加清晰，便于定位的问题	 
 + 用于构建 中、大型 单页应用，更好地在组件外部管理状态 
 
-### 69、Vue生命周期
+### 68、Vue生命周期
 + 8个阶段：
   + beforeCreate  （创建前）
   + created       （创建后）
@@ -520,10 +513,10 @@
 + mounted ： 发起后端请求，拿回数据，配合路由钩子做一些事情
 + beforeDestory： 你确认删除XX吗？ destoryed ：当前组件已被删除，清空相关内容    
 
-### 70、ES6声明块级作用域
+### 69、ES6声明块级作用域
 + let、const
 
-### 71、var、let、const区别
+### 70、var、let、const区别
 + var
   + 声明的变量，没有块的概念，可以跨块访问, 不能跨函数访问
   + 变量，作用域为该语句所在的函数内，在定义语句前就可以访问到，变量提升
@@ -537,11 +530,11 @@
   + const声明的变量如果保存的是一个对象，则可以修改对象的属性 
 + 如果变量有可能修改则用let，如果 不修改 则用const
 
-### 72、mock数据
+### 71、mock数据
 + 数据的 结构、类型 不变
 + 值 可变
 
-### 73、react 和vue的区别
+### 72、react 和vue的区别
 + 性能上vue比react好，用的是双向绑定机制
 + react用的是differ算法，走的是dom树渲染
 + 使用上vue对工具的使用者更友好，声明式编码的的封装性更高
@@ -550,16 +543,16 @@
   + vue可以直接在vue文件中使用html标签，数据绑定时类似angular，可以进行条件渲染
   + react.js则采用了jsx语法，运用虚拟DOM的概念进行DOM对页面元素进行渲染，获取页面元素需要用ref来获取，更加安全
 
-### 74、px、em和rem的区别	
+### 73、px、em和rem的区别	
 + px是绝对单位，相对于显示器分辨率
 + em 相对父元素  通常1em = 16px
 + rem相对于根元素<html>，只要在根节点设定好参考值，那么全篇的1rem都相等，1rem = 16px
 
-### 75、rem的值
+### 74、rem的值
 + 根据js来调整html的字号
 + 通过媒体查询来调整字号
 
-### 76、1像素边框（移动端）
+### 75、1像素边框（移动端）
 + devicePixelRatio的官方的定义为：设备物理像素和设备独立像素的比例，也就是devicePixelRatio = 物理像素 / 独立像素 
 + 0.5px边框  border-width：0.5px
 + border-image	border-image: url(../img/linenew.png) 0 0 2 0 stretch
@@ -571,7 +564,7 @@
   + 把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，把 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位比较完美的方法了
 + 用于 导航栏边线
 
-### 77、移动端适配/兼容
+### 76、移动端适配/兼容
 + mete 完美标签
 + rem适配
 + viewport
@@ -579,20 +572,20 @@
 + 清除边框高亮
 + flexbox (伸缩盒模型)
 
-### 78、Flex布局（伸缩盒模型）
+### 77、Flex布局（伸缩盒模型）
 + 用于需要 自适应 宽度或者高度的场景
 
-### 79、移动端事件机制
+### 78、移动端事件机制
 + touchstart
 + touchmove
 + touchend
 
-### 80、拖拽(原生js)
+### 79、拖拽(原生js)
 + mousedown  
 + mousemove  
 + mouseup
 
-### 81、CSS选择器的优先级
+### 80、CSS选择器的优先级
 + !important 比 内联 优先级高
 + 内联样式    优先级 1000
 + id选择器    优先级 100
@@ -601,12 +594,12 @@
 + 通配选择器  优先级 0
 + 继承的样式  没有优先级
 
-### 82、this
+### 81、this
 + 全局中的 this 是  window
 + 函数中的this 是 函数所在的对象
 + 对象中的this 是 它本身
 
-### 83、JS继承的6种方法
+### 82、JS继承的6种方法
 + 原型链继承
 + 构造函数继承
 + 组合继承（原型+借用构造）
@@ -614,22 +607,22 @@
 + 寄生式组合
 + 寄生组合式继承
 
-### 84、src与href区别
+### 83、src与href区别
 + src：替换当前元素
 + href：在 当前文档 和 引用资源 之间确立联系
 
-### 85、call、apply区别
+### 84、call、apply区别
 + call是将所有的参数一个个传递进去
 + apply是将所有参数放入数组中传递
 
-### 86、node
+### 85、node
 + 在V8引擎上运行
 + 适用场景
   + 大量用户访问，低计算量的场景
   + 实时应用：在线聊天
   + 游戏应用
 
-### 87、项目构建工具
+### 86、项目构建工具
 + gulp
   + 一步步来配置环境
 + grunt
@@ -643,35 +636,35 @@
 + 自动刷新
 + 代码效验
 
-### 88、TCP与HTTP区别
+### 87、TCP与HTTP区别
 + TCP对应于 传输层协议，主要解决数据如何在网络中传输
 + HTTP对应于 应用层协议，主要解决如何包装数据
 
-### 89、rgba、opacity的透明效果
+### 88、rgba、opacity的透明效果
 + rgba: 只作用于 元素的颜色或背景色
 + opacity: 作用于 元素，以及元素内所有内容的透明度 
 
-### 90、JSON（JavaScript Object Natation）
+### 89、JSON（JavaScript Object Natation）
 + 轻量级数据交换格式
 + 是javacscript的一个子集
 + 数据格式简单
 + 易于读写
 + 占用带宽小
 
-### 91、递归
+### 90、递归
 + 在运行的过程中调用自己
 
-### 92、单页面应用
+### 91、单页面应用
 + 优点
   + 用户体验好，不需要每次向服务器发送请求页面数据，响应快
 + 缺点
   + 使用浏览器的前进、后退键的时候会重新发送请求，没有合理得利用缓存
 
-### 93、svg (Scalable Vector Graphics)
+### 92、svg (Scalable Vector Graphics)
 + 不失真
 + 可缩放 矢量图形
 
-### 94、可视化工具
+### 93、可视化工具
 + echarts
   + 是画图表的 
   + 柱状图、折线图、饼图
@@ -680,11 +673,11 @@
 + d3
   + 更自由些 
 
-### 95、Doctype作用
+### 94、Doctype作用
 + 文档类型 声明
 + 避免浏览器的 怪异模式
 
-### 96、盒子模型
+### 95、盒子模型
 + 标准W3C 盒子模型
   + border、margin、padding、content
 + IE 盒子模型
@@ -692,7 +685,7 @@
   + IE 盒子模型的 content 部分包含了 border 和 pading
 + 盒子的 内容 是否包含 边框 和 内边距
 
-### 97、js的数据类型
+### 96、js的数据类型
 + string
 + number
 + boolean
@@ -700,63 +693,67 @@
 + null 
 + undefined
 
-### 98、对象引用类型 
+### 97、对象引用类型 
 + Object -- typeof/instanceof
 + Array -- instanceof
   + 数组 也是 对象
 + Function -- typeof
 
-### 99、为什么会出现 引用类型
+### 98、为什么会出现 引用类型
 + 基本数据 类型存储在 栈中
 + 引用数据 类型存储在 堆中
 
-### 100、基本内置对象
+### 99、基本内置对象
 + Array对象
 + Date对象
 + 正则表达式 对象
 + String对象
 + Global对象
 
-### 101、MongoDB的类型
+### 100、MongoDB的类型
 + 基于 分布式 文件存储的数据库
 
-### 102、Hbuilder与WebStorm区别
+### 101、Hbuilder与WebStorm区别
 + Hbuilder 写 H5 比较好
 + Webstorm 写 js 比较好
 + Bracket 写 CSS 比较好
 + Sublime 写 HTML + CSS比较不错，轻便，插件安两个就行，一个是packagecontrol,	   一个是emmet
 
-### 103、深度克隆 (Deep Clone)
+### 102、深度克隆 (Deep Clone)
 + 所有元素或属性均完全复制，与原对象完全脱离，也就是说所有对于新对象的修改都不会反映到原对象中
 
-### 104、动画
+### 103、动画
 + 不复杂 的动画可以用css实现
 + 复杂的，或者需要 交互的 时候，用js
 
-### 105、前端调试工具
+### 104、前端调试工具
 + Chrome的开发者工具
 + Firefox插件Firebug
 + IE的开发者工具
 + IETest，IE浏览器版本切换工具
 
-### 106、new做了什么
+### 105、new做了什么
 + 创建一个新对象
 + 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）
 + 执行构造函数中的代码（为这个新对象添加属性）
 + 返回新对象
 
-### 107、百度地图定位
+### 106、百度地图定位
 + PC端
   + IP地址
 + 手机定位
   + GPS、基站定位
 
-### 108、版本控制工具
+### 107、版本控制工具
 + SVN -- CollabNet Subversion
 + GIT -- 最先进的分布式版本控制系统
 + VSS -- Visual Source Saf （Microsoft提供的）
 + CVS -- Concurrent Versions System
 
+### 108、如果你有无穷多的水，一个3公升的捅，一个5公升的捅，两只提捅形状都不均匀，如何才能准确称出4公升的水?
++ 用5升桶满桶，倒入3升桶中，倒满后大桶里剩2升
++ 把3升桶倒空，把那2升倒入3升桶中
++ 用5升桶满桶再向3升里倒，倒入一升就满，大桶里剩下的是4 升
 ---
 
 ###### 本笔记由 <span><a>靳新喜<a/></span> &copy; 编写
