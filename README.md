@@ -348,12 +348,12 @@
 ### 50、jQuery (write less,do more)
 + 功能丰富的JS函数库、项目开发首选
 + 主要用于PC端
-+ jQueryMobile用于移动端
 + 封装简化DOM操作
 + 增删改查操作
 + jQuery的所有的功能都需要通过核心函数来实现
 + 主要功能是选择器
 + 属性的修改和绑定
++ jQueryMobile用于移动端
 
 ### 51、jQuery版本
 + 1.x	兼容老版本IE
