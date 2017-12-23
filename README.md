@@ -685,11 +685,10 @@
   + IE 盒子模型的 content 部分包含了 border 和 pading
 + 盒子的 内容 是否包含 边框 和 内边距
 
-### 96、js的数据类型
+### 96、js的基本数据类型
 + string
 + number
 + boolean
-+ object
 + null 
 + undefined
 
@@ -760,6 +759,47 @@
 + display:block  行内元素 转换为 块级元素
 + display:inline  块级元素 转换为 行内元素
 + display:inline-block  转为 内联元素
+
+# 110、块级元素
++ address – 地址
++ blockquote – 块引用
++ center – 举中对齐块
++ dir – 目录列表
++ dl – 定义列表
++ fieldset – form控制组
++ form – 交互表单
++ hr – 水平分隔线
++ isindex – input prompt
++ menu – 菜单列表
++ noframes – frames可选内容，（对于不支持frame的浏览器显示此区块内容）
++ noscript – 可选脚本内容（对于不支持script的浏览器显示此内容）
++ pre – 格式化文本
++ table – 表格
+
+### 111、内联元素
++ abbr – 缩写
++ acronym – 首字
++ b – 粗体
++ big – 大字体
++ br – 换行
++ em – 强调
++ i – 斜体
++ label – 表格标签
++ s – 中划线
++ small – 小字体文本
++ strike – 中划线
++ strong – 粗体强调
++ sub – 下标
++ sup – 上标
++ textarea – 多行文本输入框
++ tt – 电传文本
++ u – 下划线
+
+### 112、var numberArray = [3,6,2,4,1,5]
++ 倒排，输出[5,1,4,2,6,3]
+  + numberArray.reverse()
++ 降序排列，输出[6,5,4,3,2,1]
+  + numberArray.sort(function(a,b){return b-a})
 
 ###### 本笔记由 靳新喜 &copy; 编写
 ###### 转载请注明作者信息 &copy;
