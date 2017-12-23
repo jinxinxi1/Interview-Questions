@@ -181,12 +181,15 @@
 + 正则表达式手机号码 
   + ^1[3|4|5|7|8][0-9]{9}$ 
   + ^((\+86)|(86))?(13)\d{9}$ 
++ 固话 区号3-4位，第一位为0，中横线，7-8位数字，中横线，3-4位分机号格式
+  + ^[0]\d{2,3}\-\d{7,8}\-\d{3,4}$
 + 电子邮件地址的正则表达式	
   + /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
 + 字母开头，其余由数字、字母、下划线组成的6~30的字符串
   + ^[a-zA-Z]{1}[\W]{5,29}$ 
 + 最短6位，最长20位，数字和字母组成
   + ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,20}$
+ 
 
 ### 28、HTTP版本
 + 0.9
@@ -804,7 +807,7 @@
 ### 113、输出今天的日期，以YYYY-MM-DD的方式
  ```
  var d = new Date();
- // 获取年，getFullYear()返回4位的数字
+ // 获取年，getFullYear() 返回4位数字
  var year = d.getFullYear();
  // 获取月，月份比较特殊，0是1月，11是12月
  var month = d.getMonth() + 1;
@@ -815,6 +818,31 @@
  day = day < 10 ? '0' + day : day;
  alert(year + '-' + month + '-' + day);
  ```
+### 114、documen.write、innerHTML的区别
++ document.write 只能重绘 整个页面
++ innerHTML 可以重绘页面的 一部分
+
+### 115、jQuery框架中$.ajax()的常用参数有哪些？写一个post请求并带有发送数据和返回数据的样例
++ async 是否异步
++ url 请求地址
++ contentType 发送信息至服务器时内容编码类型
++ data 发送到服务器的数据
++ dataType 预期服务器返回的数据类型
++ type 请求类型
++ success 请求成功回调函数
++ error 请求失败回调函数	
+```
+  $.ajax({
+        url: "/jquery/test1.txt",
+        type: 'post',
+        data: {
+            id: 1
+        },
+        success: function(data) {
+            alert(data);
+        }
+    }
+```
 
 
 ###### 本笔记由 靳新喜 &copy; 编写
