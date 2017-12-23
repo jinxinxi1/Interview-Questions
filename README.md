@@ -760,7 +760,7 @@
 + display:inline  块级元素 转换为 行内元素
 + display:inline-block  转为 内联元素
 
-# 110、块级元素
+### 110、块级元素
 + address – 地址
 + blockquote – 块引用
 + center – 举中对齐块
