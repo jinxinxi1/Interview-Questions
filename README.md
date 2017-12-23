@@ -796,10 +796,10 @@
 + u – 下划线
 
 ### 112、var numberArray = [3,6,2,4,1,5]
-  + 倒排，输出[5,1,4,2,6,3]
-    + numberArray.reverse()
-  + 降序排列，输出[6,5,4,3,2,1]
-    + numberArray.sort(function(a,b){return b-a})
++ 倒排，输出[5,1,4,2,6,3]
+  * numberArray.reverse()
++ 降序排列，输出[6,5,4,3,2,1]
+  * numberArray.sort(function(a,b){return b-a})
 
 ###### 本笔记由 靳新喜 &copy; 编写
 ###### 转载请注明作者信息 &copy;
