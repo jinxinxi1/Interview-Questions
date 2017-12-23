@@ -802,17 +802,19 @@
   * numberArray.sort(function(a,b){return b-a})
 
 ### 113、输出今天的日期，以YYYY-MM-DD的方式
-* var d = new Date();
-// 获取年，getFullYear()返回4位的数字
-var year = d.getFullYear();
-// 获取月，月份比较特殊，0是1月，11是12月
-var month = d.getMonth() + 1;
-// 变成两位
-month = month < 10 ? '0' + month : month;
-// 获取日
-var day = d.getDate();
-day = day < 10 ? '0' + day : day;
-alert(year + '-' + month + '-' + day);
+ ```
+ var d = new Date();
+ // 获取年，getFullYear()返回4位的数字
+ var year = d.getFullYear();
+ // 获取月，月份比较特殊，0是1月，11是12月
+ var month = d.getMonth() + 1;
+ // 变成两位
+ month = month < 10 ? '0' + month : month;
+ // 获取日
+ var day = d.getDate();
+ day = day < 10 ? '0' + day : day;
+ alert(year + '-' + month + '-' + day);
+ ```
 
 
 ###### 本笔记由 靳新喜 &copy; 编写
