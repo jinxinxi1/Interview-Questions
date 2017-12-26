@@ -891,7 +891,6 @@
       console.log(item, index)
   })
 ```
-
 ### 119、promise 对象 的原理、作用
 + Promise对象: 代表了 未来 某个将要发生的事件(通常是一个异步操作)
 + ES6的Promise是一个构造函数, 用来生成promise实例
@@ -919,11 +918,15 @@
 
 ### 121、commonjs 和 ES6 模块化暴露的本质分别是什么
 * commonjs 暴露的方式
-  * module.exports = value;
-  * exports.xxx = value;
+  ```
+   module.exports = value;
+   exports.xxx = value;
+  ```
 * ES6中暴露的方式
-  * export xxx （常规暴露，暴露的本质是对象，接收的时候只能以对象的解构赋值的方式来接收值）
-  * export default （默认暴露，暴露任意数据类型，暴露什么数据类型，接收什么数据类型）
+  ```
+   export xxx （常规暴露，暴露的本质是对象，接收的时候只能以对象的解构赋值的方式来接收值）
+   export default （默认暴露，暴露任意数据类型，暴露什么数据类型，接收什么数据类型）
+  ```
 
 ###### 本笔记由 靳新喜 &copy; 编写
 ###### 转载请注明作者信息 &copy;
