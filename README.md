@@ -918,12 +918,12 @@
 
 ### 121、commonjs 和 ES6 模块化暴露的本质分别是什么
 * commonjs 暴露的方式
-  - module.exports = value;
-  - exports.xxx = value;
+    + module.exports = value;
+    + exports.xxx = value;
   
 * ES6中暴露的方式
-  - export xxx （常规暴露，暴露的本质是对象，接收的时候只能以对象的解构赋值的方式来接收值）
-  - export default （默认暴露，暴露任意数据类型，暴露什么数据类型，接收什么数据类型）
+    + export xxx （常规暴露，暴露的本质是对象，接收的时候只能以对象的解构赋值的方式来接收值）
+    + export default （默认暴露，暴露任意数据类型，暴露什么数据类型，接收什么数据类型）
 
 
 ###### 本笔记由 靳新喜 &copy; 编写
