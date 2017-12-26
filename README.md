@@ -216,8 +216,18 @@
 + jsonp (JSON with Padding)
   + jsonp是一种“技巧”
   + 利用scirpt标签的src属性不受跨域的限制的特点
-  + 只能发送get请求
+  + 解决跨域
+    + 浏览器端
+      + 动态生成script标签，提前定义好回调函数，在合适的时机添加src属性				指定请求的地址
+    + 服务器端
+      + 后台接收到回调函数，将数据包括在回调函数调用的句柄中，一起返回
+    + 只能发送get请求
 + cors
+  + cors是一门技术，在本质上让ajax引擎允许跨域 
+	 + 浏览器端什么也不用干
+	 + 服务器端设置响应头：Access-Control-Allow-Origin
+	 + 支持get和post请求
+	 + 兼容IE8 
 + 服务器跨域
 + postmessage跨域
 
@@ -621,7 +631,12 @@
 + src：替换当前元素
 + href：在 当前文档 和 引用资源 之间确立联系
 
-### 84、call、apply区别
+### 84、bind、call、apply区别
++ bind，call，apply都能强制指定this
++ call，apply指定完this后，立即调用当前函数
++ bind绑定完this，不会立即调用，将当前的函数返回
++ call，apply传参形式不一样，apply需要传入数组里
++ bind同call一样，可以直接传参
 + call是将所有的参数一个个传递进去
 + apply是将所有参数放入数组中传递
 
@@ -730,7 +745,7 @@
 + Hbuilder 写 H5 比较好
 + Webstorm 写 js 比较好
 + Bracket 写 CSS 比较好
-+ Sublime 写 HTML + CSS比较不错，轻便，插件安两个就行，一个是packagecontrol,	   一个是emmet
++ Sublime 写 HTML + CSS比较不错，轻便，插件安两个就行，一个是packagecontrol,一个是emmet
 
 ### 102、深度克隆 (Deep Clone)
 + 所有元素或属性均完全复制，与原对象完全脱离，也就是说所有对于新对象的修改都不会反映到原对象中
@@ -866,6 +881,49 @@
 ### 117、jQuery与jQuery UI的区别
 + jQuery 是操作dom的 框架
 + jQueryUI 是基于jQuery做的一个 UI组件库
+
+### 118、箭头函数 特点，数组 map 遍历的方法
++ 箭头函数没有自己的this，在语法上更为简洁。
++ 箭头函数的this不是在调用的时候决定的，是在定义的时候决定的，定义时候所处的对象就是箭头函数的this
++ 箭头函数的this是看外层有没有函数，如果有，和外层的函数指向的是同一个this，如果没有则指向window
+```
+  arr.map((item, index) => {
+      console.log(item, index)
+  })
+```
+
+### 119、promise 对象 的原理、作用
++ Promise对象: 代表了 未来 某个将要发生的事件(通常是一个异步操作)
++ ES6的Promise是一个构造函数, 用来生成promise实例
++ 有了promise对象, 可以将异步操作以同步的流程表达出来, 避免了层层嵌套的 回调函数 (俗称'回调地狱')
++ promise有三种状态('初始化状态'， '成功的状态'， '失败的状态')
++ 通过执行异步任务返回的结果(通常是发送ajax请求)来修改promise的状态，
++ 当promise的状态发生改变的时候会调用promise的实例中的then方法的成功或者失败的回调函数，去执行相应的操作
+
+### 120、package.json 中最重要的 五个属性、作用
+```
+{
+  "name": "npm_command",  //包名（必不可少）
+  "version": "1.0.0",  //版本（必不可少）
+  "scripts": {  //配置npm运行命令
+    "start": "node bin/www"
+  },
+  "dependencies": {  //运行依赖的包
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {	//开发依赖的包
+    "babel": "^6.23.0"
+  }
+}
+```
+
+### 121、commonjs 和 ES6 模块化暴露的本质分别是什么
++ commonjs 暴露的方式
+  + module.exports = value;
+  + exports.xxx = value;
++ ES6中暴露的方式
+  + export xxx （常规暴露，暴露的本质是对象，接收的时候只能以对象的解构赋值的方式来接收值）
+  + export default （默认暴露，暴露任意数据类型，暴露什么数据类型，接收什么数据类型）
 
 ###### 本笔记由 靳新喜 &copy; 编写
 ###### 转载请注明作者信息 &copy;
