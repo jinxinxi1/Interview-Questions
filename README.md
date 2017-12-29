@@ -387,20 +387,27 @@ error:请求响应 失败的回调
 + 默认cookies生存期限 就到 关闭浏览器 为止
 
 ### 50、如何保证cookie的安全
-+ 这两个前缀分别为 __Secure- 和 __Host- ，它们会被用作 Cookie 名称的前缀而非数值。如果你的网站有一个名为 sid 的 Cookie，那么为了发挥 Cookie 前   缀的优势，应当将名称改为 __Secure-sid
++ 1、这两个前缀分别为 __Secure- 和 __Host- ，它们会被用作 Cookie 名称的前缀而非数值。如果你的网站有一个名为 sid 的 Cookie，那么为了发挥 Cookie 前   缀的优势，应当将名称改为 __Secure-sid
 ```
-__Secure 前缀
-  + 如果 Cookie 名称带有 __Secure- 前缀，那么它肯定具有 Secure 属性并且被设置为来源于一个安全的源
-  + 告诉浏览器需要设置 Secure 属性
-__Host- 前缀
-  + 如果 Cookie 名称带有 __Host- 前缀，那么它也肯定会具有 Secure 属性，而不应当具有 Domain 属性，因为 Cookie 只作用于同源的网站，必须设置   	     Path=/ 
-  + 告诉浏览器同时需要设置 Path=/ 和 Secure 属性，同时不应当设置 Domain  
-    属性
-注意
-  + //支持 __Secure 前缀的浏览器会拒绝以下连接，因为缺少 Secure 属性
+2、__Secure 前缀
+   如果 Cookie 名称带有 __Secure- 前缀，那么它肯定具有 Secure 属性并且被设置为来源于一个安全的源
+   告诉浏览器需要设置 Secure 属性
+3、__Host- 前缀
+  如果 Cookie 名称带有 __Host- 前缀，那么它也肯定会具有 Secure 属性，而不应当具有 Domain 属性，因为 Cookie 只作用于同源的网站，必须设置   	     Path=/ 
+  告诉浏览器同时需要设置 Path=/ 和 Secure 属性，同时不应当设置 Domain 属性
+4、注意
+  //支持 __Secure 前缀的浏览器会拒绝以下连接，因为缺少 Secure 属性
     document.cookie = '__Secure-invalid-without-secure=1';
+  //所有浏览器包括支持 __Secure 前缀的浏览器都会接受以下连接，因为设置了 Secure 属性
+  document.cookie = '__Secure-valid-with-secure=1; Secure';
+  //支持 __Host 前缀的浏览器会拒绝以下连接，因为缺少 Secure 和 Path=/ 属性
+  document.cookie = '__Host-invalid-without-secure-or-path=1';
+  //支持 __Host 前缀的浏览器会拒绝以下连接，因为缺少 Path=/ 属性，即使设置了  Secure 属性
+  document.cookie = '__Host-invalid-without-path=1; Secure';
+  //所有浏览器包括支持 __Host 前缀的浏览器都会接受以下连接，因为同时包含了 Secure 和 Path=/ 属性
+  document.cookie = '__Host-valid-with-secure-and-path=1; Secure; Path=/';
+	  
 ```
-
 
 ### 49、CSS3新特性 
 + 背景
