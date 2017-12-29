@@ -190,7 +190,6 @@
 + 最短6位，最长20位，数字和字母组成
   + ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,20}$
  
-
 ### 28、HTTP版本
 + 0.9
 + 1.0
@@ -222,6 +221,34 @@
     + 服务器端
       + 后台接收到回调函数，将数据包括在回调函数调用的句柄中，一起返回
     + 只能发送get请求
++ jsonp写法
+```
+  $.ajax({
+              type: "get",
+              async:false,
+              url: "http://192.168.1.102:8080/carop/jsonp",
+              data: {“name”:"VUE"},	//参数
+	      dataType: "jsonp",
+	      jsonp:"",
+              jsonpCallback:"jsonpCallback",              
+              success: function(data){
+		  //业务处理
+		alert(data.name+"\n "+data.tel);
+              },
+	      error:function(msg){
+		 //执行错误
+	      }
+          }); 
+```
+  + type:代表请求提交的方式
+  + async:是否同步
+  + url：请求地址
+  + data:待发送Key/value参数
+  + dataType:请求的数据类型，是使用jsonp这种跨数据访问协议的json数据格式还是用其他的数据格式
+  + jsonp:有了这个参数，那么实际请求的url地址会变成http://b.com/index.php?callback=?,如果jsonp设置为test111,那么请求地址就是     http://b.com/index.php?test111=?
+  + jsonpCallback:定义回调函数的名称，和上面的参数jsonp一起使用，如果这个参数为myCallback,请求的地址会变成http://b.com/index.php?callback=myCallback,另外值得注意的是，如果这个值为空的话，那么jquery会默认随机生成一个函数名传过去，那么实际请求的地址就是：http://b.com/index.php?callback=jquery12253158788754457。
+  + success:请求响应成功的回调
+  + error:请求响应失败的回调
 + cors
   + cors是一门技术，在本质上让ajax引擎允许跨域 
 	 + 浏览器端什么也不用干
@@ -493,7 +520,7 @@
 
 ### 65、vue传参
 + vue父组件向子组件传参 props
-+ vue父组件获取子组件	ref
++ vue父组件获取子组件 ref
 + vue子组件向父组件 emit
 + vue组件间传参 vuex
 
@@ -533,10 +560,58 @@
 + mounted ： 发起后端请求，拿回数据，配合路由钩子做一些事情
 + beforeDestory： 你确认删除XX吗？ destoryed ：当前组件已被删除，清空相关内容    
 
-### 69、ES6声明块级作用域
+### 69、vue获取DOM元素
++ 在vue中可以通过给标签加ref属性，就可以在js中利用ref去引用它，从而操作该dom元素
+ ```
+<template>  
+  <div>  
+    <div id="box" ref="mybox">  
+      DEMO  
+    </div>  
+  </div>  
+</template>  
+  
+<script>  
+export default {  
+  data () {  
+    return {  
+        
+    }  
+  },  
+  mounted () {  
+    this.init();  
+  },  
+  methods:{  
+    init() {  
+      const self = this;  
+      this.$refs.mybox.style.color = 'red';  
+      setTimeout(() => {  
+        self.$refs.mybox.style.color = 'blue';  
+      },2000)  
+    }  
+  }  
+  
+}  
+</script>  
+  
+<style scoped>  
+  #box {  
+    width: 100px;  
+    height: 100px;  
+    line-height: 100px;  
+    font-size: 20px;  
+    text-align: center;  
+    border: 1px solid black;  
+    margin: 50px;   
+    color: yellow;  
+  }  
+</style>  
+ ```
+
+### 70、ES6声明块级作用域
 + let、const
 
-### 70、var、let、const区别
+### 71、var、let、const区别
 + var
   + 声明的变量，没有块的概念，可以跨块访问, 不能跨函数访问
   + 变量，作用域为该语句所在的函数内，在定义语句前就可以访问到，变量提升
@@ -550,11 +625,11 @@
   + const声明的变量如果保存的是一个对象，则可以修改对象的属性 
 + 如果变量有可能修改则用let，如果 不修改 则用const
 
-### 71、mock数据
+### 72、mock数据
 + 数据的 结构、类型 不变
 + 值 可变
 
-### 72、react 和vue的区别
+### 73、react 和vue的区别
 + 性能上vue比react好，用的是双向绑定机制
 + react用的是differ算法，走的是dom树渲染
 + 使用上vue对工具的使用者更友好，声明式编码的的封装性更高
@@ -563,16 +638,16 @@
   + vue可以直接在vue文件中使用html标签，数据绑定时类似angular，可以进行条件渲染
   + react.js则采用了jsx语法，运用虚拟DOM的概念进行DOM对页面元素进行渲染，获取页面元素需要用ref来获取，更加安全
 
-### 73、px、em和rem的区别	
+### 74、px、em和rem的区别	
 + px是绝对单位，相对于显示器分辨率
 + em 相对父元素  通常1em = 16px
 + rem相对于根元素<html>，只要在根节点设定好参考值，那么全篇的1rem都相等，1rem = 16px
 
-### 74、rem的值
+### 75、rem的值
 + 根据js来调整html的字号
 + 通过媒体查询来调整字号
 
-### 75、1像素边框（移动端）
+### 76、1像素边框（移动端）
 + devicePixelRatio的官方的定义为：设备物理像素和设备独立像素的比例，也就是devicePixelRatio = 物理像素 / 独立像素 
 + 0.5px边框  border-width：0.5px
 + border-image	border-image: url(../img/linenew.png) 0 0 2 0 stretch
@@ -584,7 +659,7 @@
   + 把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，把 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位比较完美的方法了
 + 用于 导航栏边线
 
-### 76、移动端适配/兼容
+### 77、移动端适配/兼容
 + mete 完美标签
 + rem适配
 + viewport
@@ -592,20 +667,20 @@
 + 清除边框高亮
 + flexbox (伸缩盒模型)
 
-### 77、Flex布局（伸缩盒模型）
+### 78、Flex布局（伸缩盒模型）
 + 用于需要 自适应 宽度或者高度的场景
 
-### 78、移动端事件机制
+### 79、移动端事件机制
 + touchstart
 + touchmove
 + touchend
 
-### 79、拖拽(原生js)
+### 80、拖拽(原生js)
 + mousedown  
 + mousemove  
 + mouseup
 
-### 80、CSS选择器的优先级
+### 81、CSS选择器的优先级
 + !important 比 内联 优先级高
 + 内联样式    优先级 1000
 + id选择器    优先级 100
@@ -614,12 +689,12 @@
 + 通配选择器  优先级 0
 + 继承的样式  没有优先级
 
-### 81、this
+### 82、this
 + 全局中的 this 是  window
 + 函数中的this 是 函数所在的对象
 + 对象中的this 是 它本身
 
-### 82、JS继承的6种方法
+### 83、JS继承的6种方法
 + 原型链继承
 + 构造函数继承
 + 组合继承（原型+借用构造）
@@ -627,11 +702,11 @@
 + 寄生式组合
 + 寄生组合式继承
 
-### 83、src与href区别
+### 84、src与href区别
 + src：替换当前元素
 + href：在 当前文档 和 引用资源 之间确立联系
 
-### 84、bind、call、apply区别
+### 85、bind、call、apply区别
 + bind，call，apply都能强制指定this
 + call，apply指定完this后，立即调用当前函数
 + bind绑定完this，不会立即调用，将当前的函数返回
@@ -640,7 +715,7 @@
 + call是将所有的参数一个个传递进去
 + apply是将所有参数放入数组中传递
 
-### 85、node
+### 86、node
 + 在V8引擎上运行
 + 适用场景
   + 大量用户访问，低计算量的场景
@@ -651,7 +726,7 @@
 + 缺点
   + Node是一个相对新的开源项目，所以不太稳定，它总是一直在变，而且缺少足够多的第三方库支持
 
-### 86、项目构建工具
+### 87、项目构建工具
 + gulp
   + 一步步来配置环境
 + grunt
@@ -665,35 +740,35 @@
 + 自动刷新
 + 代码效验
 
-### 87、TCP与HTTP区别
+### 88、TCP与HTTP区别
 + TCP对应于 传输层协议，主要解决数据如何在网络中传输
 + HTTP对应于 应用层协议，主要解决如何包装数据
 
-### 88、rgba、opacity的透明效果
+### 89、rgba、opacity的透明效果
 + rgba: 只作用于 元素的颜色或背景色
 + opacity: 作用于 元素，以及元素内所有内容的透明度 
 
-### 89、JSON（JavaScript Object Natation）
+### 90、JSON（JavaScript Object Natation）
 + 轻量级数据交换格式
 + 是javacscript的一个子集
 + 数据格式简单
 + 易于读写
 + 占用带宽小
 
-### 90、递归
+### 91、递归
 + 在运行的过程中调用自己
 
-### 91、单页面应用
+### 92、单页面应用
 + 优点
   + 用户体验好，不需要每次向服务器发送请求页面数据，响应快
 + 缺点
   + 使用浏览器的前进、后退键的时候会重新发送请求，没有合理得利用缓存
 
-### 92、svg (Scalable Vector Graphics)
+### 93、svg (Scalable Vector Graphics)
 + 不失真
 + 可缩放 矢量图形
 
-### 93、可视化工具
+### 94、可视化工具
 + echarts
   + 是画图表的 
   + 柱状图、折线图、饼图
@@ -702,11 +777,11 @@
 + d3
   + 更自由些 
 
-### 94、Doctype作用
+### 95、Doctype作用
 + 文档类型 声明
 + 避免浏览器的 怪异模式
 
-### 95、盒子模型
+### 96、盒子模型
 + 标准W3C 盒子模型
   + border、margin、padding、content
 + IE 盒子模型
@@ -714,82 +789,82 @@
   + IE 盒子模型的 content 部分包含了 border 和 pading
 + 盒子的 内容 是否包含 边框 和 内边距
 
-### 96、js的基本数据类型
+### 97、js的基本数据类型
 + string
 + number
 + boolean
 + null 
 + undefined
 
-### 97、对象引用类型 
+### 98、对象引用类型 
 + Object -- typeof/instanceof
 + Array -- instanceof
   + 数组 也是 对象
 + Function -- typeof
 
-### 98、为什么会出现 引用类型
+### 99、为什么会出现 引用类型
 + 基本数据 类型存储在 栈中
 + 引用数据 类型存储在 堆中
 
-### 99、基本内置对象
+### 100、基本内置对象
 + Array对象
 + Date对象
 + 正则表达式 对象
 + String对象
 + Global对象
 
-### 100、MongoDB的类型
+### 101、MongoDB的类型
 + 基于 分布式 文件存储的数据库
 
-### 101、Hbuilder与WebStorm区别
+### 102、Hbuilder与WebStorm区别
 + Hbuilder 写 H5 比较好
 + Webstorm 写 js 比较好
 + Bracket 写 CSS 比较好
 + Sublime 写 HTML + CSS比较不错，轻便，插件安两个就行，一个是packagecontrol,一个是emmet
 
-### 102、深度克隆 (Deep Clone)
+### 103、深度克隆 (Deep Clone)
 + 所有元素或属性均完全复制，与原对象完全脱离，也就是说所有对于新对象的修改都不会反映到原对象中
 
-### 103、动画
+### 104、动画
 + 不复杂 的动画可以用css实现
 + 复杂的，或者需要 交互的 时候，用js
 
-### 104、前端调试工具
+### 105、前端调试工具
 + Chrome的开发者工具
 + Firefox插件Firebug
 + IE的开发者工具
 + IETest，IE浏览器版本切换工具
 
-### 105、new做了什么
+### 106、new做了什么
 + 创建一个新对象
 + 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）
 + 执行构造函数中的代码（为这个新对象添加属性）
 + 返回新对象
 
-### 106、百度地图定位
+### 107、百度地图定位
 + PC端
   + IP地址
 + 手机定位
   + GPS、基站定位
 
-### 107、版本控制工具
+### 108、版本控制工具
 + SVN -- CollabNet Subversion
 + GIT -- 最先进的分布式版本控制系统
 + VSS -- Visual Source Saf （Microsoft提供的）
 + CVS -- Concurrent Versions System
 
-### 108、如果你有无穷多的水，一个3公升的捅，一个5公升的捅，两只提捅形状都不均匀，如何才能准确称出4公升的水?
+### 109、如果你有无穷多的水，一个3公升的捅，一个5公升的捅，两只提捅形状都不均匀，如何才能准确称出4公升的水?
 + 用5升桶 满桶，倒入3升桶中，倒满后大桶里剩2升
 + 把3升桶 倒空，把那2升倒入3升桶中
 + 用5升桶 满桶再向3升里倒，倒入一升就满，大桶里剩下的是4 升
 ---
 
-### 109、display属性
+### 110、display属性
 + display:block  行内元素 转换为 块级元素
 + display:inline  块级元素 转换为 行内元素
 + display:inline-block  转为 内联元素
 
-### 110、块级元素
+### 111、块级元素
 + address – 地址
 + blockquote – 块引用
 + center – 举中对齐块
@@ -805,7 +880,7 @@
 + pre – 格式化文本
 + table – 表格
 
-### 111、内联元素
+### 112、内联元素
 + abbr – 缩写
 + acronym – 首字
 + b – 粗体
@@ -824,13 +899,13 @@
 + tt – 电传文本
 + u – 下划线
 
-### 112、var numberArray = [3,6,2,4,1,5]
+### 113、var numberArray = [3,6,2,4,1,5]
 + 倒排，输出[5,1,4,2,6,3]
   * numberArray.reverse()
 + 降序排列，输出[6,5,4,3,2,1]
   * numberArray.sort(function(a,b){return b-a})
 
-### 113、输出今天的日期，以YYYY-MM-DD的方式
+### 114、输出今天的日期，以YYYY-MM-DD的方式
  ```
  var d = new Date();
  // 获取年，getFullYear() 返回4位数字
@@ -844,11 +919,11 @@
  day = day < 10 ? '0' + day : day;
  alert(year + '-' + month + '-' + day);
  ```
-### 114、documen.write、innerHTML的区别
+### 115、documen.write、innerHTML的区别
 + document.write 只能重绘 整个页面
 + innerHTML 可以重绘页面的 一部分
 
-### 115、jQuery框架中$.ajax()的常用参数有哪些？写一个post请求并带有发送数据和返回数据的样例
+### 116、jQuery框架中$.ajax()的常用参数有哪些？写一个post请求并带有发送数据和返回数据的样例
 + async 是否异步
 + url 请求地址
 + contentType 发送信息至服务器时内容编码类型
@@ -870,7 +945,7 @@
     }
 ```
 
-### 116、js延迟加载的方式
+### 117、js延迟加载的方式
 + defer属性
 + async属性
 + iframe方式
@@ -878,11 +953,11 @@
 + 使用jQuery的 getScript()方法
 + AJAX eval（使用AJAX得到脚本内容，然后通过eval_r(xmlhttp.responseText)来运行脚本）
 
-### 117、jQuery与jQuery UI的区别
+### 118、jQuery与jQuery UI的区别
 + jQuery 是操作dom的 框架
 + jQueryUI 是基于jQuery做的一个 UI组件库
 
-### 118、箭头函数 特点，数组 map 遍历的方法
+### 119、箭头函数 特点，数组 map 遍历的方法
 + 箭头函数没有自己的this，在语法上更为简洁。
 + 箭头函数的this不是在调用的时候决定的，是在定义的时候决定的，定义时候所处的对象就是箭头函数的this
 + 箭头函数的this是看外层有没有函数，如果有，和外层的函数指向的是同一个this，如果没有则指向window
@@ -891,7 +966,7 @@
       console.log(item, index)
   })
 ```
-### 119、promise 对象 的原理、作用
+### 120、promise 对象 的原理、作用
 + Promise对象: 代表了 未来 某个将要发生的事件(通常是一个异步操作)
 + ES6的Promise是一个构造函数, 用来生成promise实例
 + 有了promise对象, 可以将异步操作以同步的流程表达出来, 避免了层层嵌套的 回调函数 (俗称'回调地狱')
@@ -899,7 +974,7 @@
 + 通过执行异步任务返回的结果(通常是发送ajax请求)来修改promise的状态，
 + 当promise的状态发生改变的时候会调用promise的实例中的then方法的成功或者失败的回调函数，去执行相应的操作
 
-### 120、package.json 中最重要的 五个属性、作用
+### 121、package.json 中最重要的 五个属性、作用
 ```
 {
   "name": "npm_command",  //包名（必不可少）
@@ -916,7 +991,7 @@
 }
 ```
 
-### 121、commonjs 和 ES6 模块化暴露的本质分别是什么
+### 122、commonjs 和 ES6 模块化暴露的本质分别是什么
 * commonjs 暴露的方式
                     
       + module.exports = value;
@@ -926,7 +1001,6 @@
    
       + export xxx （常规暴露，暴露的本质是对象，接收的时候只能以对象的解构赋值的方式来接收值）
       + export default （默认暴露，暴露任意数据类型，暴露什么数据类型，接收什么数据类型）
-
 
 ###### 本笔记由 靳新喜 &copy; 编写
 ###### 转载请注明作者信息 &copy;
