@@ -240,13 +240,13 @@
 	      }
           }); 
 	  
-type:代表请求提交的 方式
+type:请求提交的 方式
 async:是否同步
 url：请求地址
 data:待发送Key/value参数
 dataType:请求的数据类型，是使用jsonp这种跨数据访问协议的json数据格式还是用其他的数据格式
 jsonp:有了这个参数，那么实际请求的url地址会变成http://b.com/index.php?callback=?,如果jsonp设置为test111,那么请求地址就是           	http://b.com/index.php?test111=?
-jsonpCallback:定义回调函数的名称，和上面的参数jsonp一起使用，如果这个参数为myCallback,请求的地址会变成http://b.com/index.php?callback=myCallback,另外值得注意的是，如果这个值为空的话，那么jquery会默认随机生成一个函数名传过去，那么实际请求的地址就是：http://b.com/index.php?callback=jquery12253158788754457。
+jsonpCallback:定义回调函数的名称，和上面的参数jsonp一起使用，如果这个参数为myCallback,请求的地址会变成http://b.com/index.php?callback=myCallback,另外值得注意的是，如果这个值为空的话，那么jquery会默认随机生成一个函数名传过去，那么实际请求的地址就是：http://b.com/index.php?callback=jquery12253158788754457
 success:请求响应 成功的回调
 error:请求响应 失败的回调
 ```
