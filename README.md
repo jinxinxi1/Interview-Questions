@@ -389,7 +389,7 @@ error:请求响应 失败的回调
 ### 50、如何保证cookie的安全
 + 1、这两个前缀分别为 __Secure- 和 __Host- ，它们会被用作 Cookie 名称的前缀而非数值。如果你的网站有一个名为 sid 的 Cookie，那么为了发挥 Cookie 前缀的优势，应当将名称改为 __Secure-sid
 ```
-2、__Secure 前缀
+2、__Secure- 前缀
    a、如果 Cookie 名称带有 __Secure- 前缀，那么它肯定具有 Secure 属性并且被设置为来源于一个安全的源
    b、告诉浏览器需要设置 Secure 属性
 3、__Host- 前缀
@@ -397,7 +397,7 @@ error:请求响应 失败的回调
   b、告诉浏览器同时需要设置 Path=/ 和 Secure 属性，同时不应当设置 Domain 属性
 4、注意
   //支持 __Secure 前缀的浏览器会拒绝以下连接，因为缺少 Secure 属性
-    document.cookie = '__Secure-invalid-without-secure=1';
+  document.cookie = '__Secure-invalid-without-secure=1';
     
   //所有浏览器包括支持 __Secure 前缀的浏览器都会接受以下连接，因为设置了 Secure 属性
   document.cookie = '__Secure-valid-with-secure=1; Secure';
